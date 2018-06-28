@@ -45,9 +45,6 @@ class PostController extends Controller {
             'body' =>'required',
         ]);
 
-        $title = $request['title'];
-        $body = $request['body'];
-
         $post = Post::create($request->only('title', 'body'));
 
         // 基于保存结果显示成功消息
