@@ -97,11 +97,11 @@
         </div>
     @endif
     <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            @include ('errors.list') {{-- 引入错误文件 --}}
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @include ('errors.list') {{-- 引入错误文件 --}}
+            </div>
         </div>
-    </div>
     </div>
 
     @yield('content')

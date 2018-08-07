@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'PostController@index')->name('home');
+Route::post('posts/upload', 'PostController@upload');
+
 Route::resource('posts', 'PostController');
 Route::resource('users', 'UserController');
 Route::resource('permissions', 'PermissionController');
