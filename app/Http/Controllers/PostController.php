@@ -80,6 +80,8 @@ class PostController extends Controller {
                 $bool = Storage::put($filename, file_get_contents($realPath));
                 if($bool){
                     return array("success"=>1,"image"=>array("path"=>"../storage/".$filename,'desc'=>0));
+                }else{
+                    return array("success"=>0,"message"=>'上传失败！');
                 }
 
 

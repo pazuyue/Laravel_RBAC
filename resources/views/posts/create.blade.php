@@ -136,7 +136,6 @@
                                         processData: false,
                                         statusCode: {
                                             200: function (data) {
-                                                console.log(data.image)
                                                 if (data.success) {
                                                     jQuery('#summernote').summernote('insertImage', data.image.path, data.image.desc);
                                                 } else {
