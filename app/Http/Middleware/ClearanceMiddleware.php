@@ -14,14 +14,14 @@ class ClearanceMiddleware {
      * @return mixed
      */
     public function handle($request, Closure $next) {
-        if (Auth::user()->hasPermissionTo('Administer roles & permissions'))
+        if (Auth::user()->hasPermissionTo('角色&权限管理'))
         {
             return $next($request);  // 管理员具备所有权限
         }
 
         if ($request->is('posts/create')) // 文章发布权限
         {
-            if (!Auth::user()->hasPermissionTo('Create Post'))
+            if (!Auth::user()->hasPermissionTo('新建文章'))
             {
                 abort('401');
             }
@@ -32,7 +32,7 @@ class ClearanceMiddleware {
 
         if ($request->is('posts/*/edit')) // 文章编辑权限
         {
-            if (!Auth::user()->hasPermissionTo('Edit Post')) {
+            if (!Auth::user()->hasPermissionTo('修改文章')) {
                 abort('401');
             } else {
                 return $next($request);
@@ -41,7 +41,7 @@ class ClearanceMiddleware {
 
         if ($request->isMethod('Delete')) // 文章删除权限
         {
-            if (!Auth::user()->hasPermissionTo('Delete Post')) {
+            if (!Auth::user()->hasPermissionTo('删除文章')) {
                 abort('401');
             }
             else

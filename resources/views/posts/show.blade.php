@@ -11,12 +11,12 @@
         <p class="lead">{{ $post->body }} </p>
         <hr>
         {!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id] ]) !!}
-        <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
-        @can('Edit Post')
-            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info" role="button">Edit</a>
+        <a href="{{ url()->previous() }}" class="btn btn-primary">返回</a>
+        @can('修改文章')
+            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info" role="button">修改</a>
         @endcan
-        @can('Delete Post')
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+        @can('删除文章')
+            {!! Form::submit('删除', ['class' => 'btn btn-danger']) !!}
         @endcan
         {!! Form::close() !!}
 
